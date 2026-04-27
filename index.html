@@ -25,7 +25,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             padding: 40px;
         }
@@ -46,6 +46,61 @@
             font-size: 16px;
         }
         
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* 序列输入页面 */
+        .sequence-input {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .sequence-input h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sequence-input p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .sequence-input input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .sequence-input input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .example {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .example strong {
+            color: #856404;
+        }
+        
+        /* 进度条 */
         .progress-container {
             background: #f0f0f0;
             border-radius: 10px;
@@ -64,35 +119,117 @@
             color: white;
             font-weight: bold;
             font-size: 14px;
+            width: 0%;
         }
         
-        .current-task {
+        /* 评分表单 */
+        .rating-form {
             background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 20px;
         }
         
-        .current-task h2 {
-            color: #333;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .current-task .task-name {
+        .scenario-title {
             color: #667eea;
             font-size: 24px;
             font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .question {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .question-text {
+            color: #333;
+            font-size: 16px;
             margin-bottom: 15px;
+            font-weight: 500;
         }
         
-        .current-task .instruction {
+        .rating-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .rating-option {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+        
+        .rating-option label {
+            display: block;
+            padding: 15px 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .rating-option input[type="radio"]:checked + label {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .rating-option label:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 12px;
             color: #666;
-            font-size: 14px;
-            line-height: 1.6;
         }
         
+        /* 个人信息表单 */
+        .info-form {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* 按钮 */
         .button-group {
             display: flex;
             gap: 15px;
@@ -115,9 +252,14 @@
             color: white;
         }
         
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         
         .btn-secondary {
@@ -129,21 +271,10 @@
             background: #dee2e6;
         }
         
+        /* 完成页面 */
         .completed {
             text-align: center;
             padding: 40px 20px;
-        }
-        
-        .completed h2 {
-            color: #28a745;
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-        
-        .completed p {
-            color: #666;
-            font-size: 18px;
-            line-height: 1.8;
         }
         
         .checkmark {
@@ -159,321 +290,400 @@
             color: white;
         }
         
-        .task-list {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        
-        .task-list h3 {
-            color: #333;
-            font-size: 16px;
+        .completed h2 {
+            color: #28a745;
+            font-size: 32px;
             margin-bottom: 15px;
         }
         
-        .task-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 8px;
-            background: white;
-            border-radius: 6px;
-        }
-        
-        .task-item.completed {
-            background: #d4edda;
-            padding: 10px;
-        }
-        
-        .task-item.current {
-            background: #cfe2ff;
-            border: 2px solid #667eea;
-            padding: 8px;
-        }
-        
-        .task-number {
-            width: 30px;
-            height: 30px;
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 14px;
-        }
-        
-        .task-item.completed .task-number {
-            background: #28a745;
-        }
-        
-        .task-item.current .task-number {
-            background: #0d6efd;
-        }
-        
-        .task-name-small {
-            flex: 1;
-            color: #333;
-            font-size: 14px;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-        }
-        
-        .modal-content h3 {
-            color: #333;
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        .modal-content p {
+        .completed p {
             color: #666;
-            font-size: 16px;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="mainContainer">
+    <div class="container">
         <div class="header">
             <h1>手机动效评分实验</h1>
-            <p>请依次完成10个场景的评分任务</p>
+            <p>感谢您的参与</p>
         </div>
         
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar">0/10</div>
+        <!-- 序列输入页面 -->
+        <div id="sequenceSection" class="section active">
+            <div class="sequence-input">
+                <h2>请输入您的序列顺序</h2>
+                <p>请按照主试提供的序列编号，依次输入10个数字（用逗号或空格分隔）</p>
+                
+                <div class="example">
+                    <strong>示例：</strong><br>
+                    • 1,2,3,4,5,6,7,8,9,10<br>
+                    • 2,4,6,8,10,1,3,5,7,9<br>
+                    • 或用空格：1 2 3 4 5 6 7 8 9 10
+                </div>
+                
+                <input 
+                    type="text" 
+                    id="sequenceInput" 
+                    placeholder="例如：1,2,3,4,5,6,7,8,9,10"
+                />
+                
+                <div id="sequenceError" class="error-message"></div>
+            </div>
+            
+            <button class="btn-primary" onclick="startQuestionnaire()">开始实验</button>
         </div>
         
-        <div id="taskContent">
-            <!-- 动态内容将在这里显示 -->
-        </div>
-        
-        <div class="task-list">
-            <h3>任务列表</h3>
-            <div id="taskListContent">
-                <!-- 任务列表将在这里显示 -->
+        <!-- 评分页面 -->
+        <div id="ratingSection" class="section">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">0/10</div>
+            </div>
+            
+            <div class="rating-form">
+                <div class="scenario-title" id="scenarioTitle">场景 1</div>
+                
+                <form id="ratingForm">
+                    <!-- 这里会动态生成10个评分题 -->
+                    <div id="questionsContainer"></div>
+                </form>
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn-secondary" onclick="previousScenario()" id="prevBtn">上一个</button>
+                <button type="button" class="btn-primary" onclick="nextScenario()" id="nextBtn">下一个</button>
             </div>
         </div>
-    </div>
-    
-    <div class="modal" id="confirmModal">
-        <div class="modal-content">
-            <h3>确认跳转</h3>
-            <p id="modalMessage">确定要前往问卷填写吗？填写完成后请返回此页面继续下一个任务。</p>
+        
+        <!-- 个人信息页面 -->
+        <div id="infoSection" class="section">
+            <div class="info-form">
+                <h2 style="margin-bottom: 20px; color: #333;">个人信息</h2>
+                
+                <form id="personalInfoForm">
+                    <div class="form-group">
+                        <label>姓名（可选）</label>
+                        <input type="text" id="userName" placeholder="请输入您的姓名">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>年龄</label>
+                        <input type="number" id="userAge" placeholder="请输入您的年龄" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>性别</label>
+                        <select id="userGender" required>
+                            <option value="">请选择</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>手机使用品牌</label>
+                        <input type="text" id="phoneBrand" placeholder="例如：iPhone、华为、小米等" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>每天使用手机时长</label>
+                        <select id="phoneUsage" required>
+                            <option value="">请选择</option>
+                            <option value="少于2小时">少于2小时</option>
+                            <option value="2-4小时">2-4小时</option>
+                            <option value="4-6小时">4-6小时</option>
+                            <option value="6-8小时">6-8小时</option>
+                            <option value="8小时以上">8小时以上</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            
             <div class="button-group">
-                <button class="btn-secondary" onclick="closeModal()">取消</button>
-                <button class="btn-primary" onclick="confirmGo()">确定</button>
+                <button type="button" class="btn-secondary" onclick="backToRating()">返回</button>
+                <button type="button" class="btn-primary" onclick="submitAll()">提交</button>
+            </div>
+        </div>
+        
+        <!-- 完成页面 -->
+        <div id="completedSection" class="section">
+            <div class="completed">
+                <div class="checkmark">✓</div>
+                <h2>实验完成！</h2>
+                <p>感谢您的参与！<br>您的数据已成功提交。</p>
             </div>
         </div>
     </div>
 
     <script>
-        // 10个任务的配置
-        const tasks = [
-            { id: 1, name: "上滑进入多任务", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 2, name: "控制中心-滑动音量条到最大", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 3, name: "滑动时钟选择器", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 4, name: "水平仪达到0°", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 5, name: "长按卡片/图标/文件夹", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 6, name: "控制中心返回", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 7, name: "拨号键盘输入", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 8, name: "传输(发出)成功", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 9, name: "锁屏-密码解锁失败", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " },
-            { id: 10, name: "无后台进入多任务", url: "https://v.wjx.cn/vm/OnvZ2jP.aspx# " }
+        // 10个场景名称
+        const scenarios = [
+            "按老式拨号盘",
+            "泡泡浮到水面",
+            "坐上沙发",
+            "关上冰箱门",
+            "碰到漂浮叶片",
+            "相机调焦齿轮",
+            "施加力后抽屉弹出",
+            "点头",
+            "摇头拒绝",
+            "指关节轻扣两下桌面"
         ];
         
-        let currentTaskIndex = 0;
-        let completedTasks = [];
-        let pendingUrl = "";
+        // 10个意象词（示例，您可以修改）
+        const imageWords = [
+            "上滑进入多任务",
+            "控制中心-滑动音量条到最大",
+            "滑动时钟选择器",
+            "水平仪达到0°",
+            "长按卡片/图标/文件夹",
+            "控制中心返回",
+            "拨号键盘输入",
+            "传输(发出)成功",
+            "锁屏-密码解锁失败",
+            "无后台进入多任务"
+        ];
         
-        // 从localStorage加载进度
-        function loadProgress() {
-            const saved = localStorage.getItem('questionnaire_progress');
-            if (saved) {
-                const data = JSON.parse(saved);
-                currentTaskIndex = data.currentTaskIndex || 0;
-                completedTasks = data.completedTasks || [];
+        let sequence = [];
+        let currentIndex = 0;
+        let allRatings = [];
+        
+        // 开始问卷
+        function startQuestionnaire() {
+            const input = document.getElementById('sequenceInput').value.trim();
+            const errorDiv = document.getElementById('sequenceError');
+            
+            // 解析序列
+            sequence = input.split(/[,\s，]+/).map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+            
+            // 验证序列
+            if (sequence.length !== 10) {
+                errorDiv.textContent = '请输入10个数字！';
+                errorDiv.classList.add('show');
+                return;
+            }
+            
+            const uniqueNumbers = new Set(sequence);
+            if (uniqueNumbers.size !== 10) {
+                errorDiv.textContent = '数字不能重复！';
+                errorDiv.classList.add('show');
+                return;
+            }
+            
+            const allValid = sequence.every(n => n >= 1 && n <= 10);
+            if (!allValid) {
+                errorDiv.textContent = '所有数字必须在1-10之间！';
+                errorDiv.classList.add('show');
+                return;
+            }
+            
+            // 保存序列
+            localStorage.setItem('userSequence', JSON.stringify(sequence));
+            
+            // 初始化评分数据
+            allRatings = sequence.map(() => ({}));
+            
+            // 显示第一个场景
+            currentIndex = 0;
+            showSection('ratingSection');
+            renderRatingForm();
+        }
+        
+        // 渲染评分表单
+        function renderRatingForm() {
+            const scenarioIndex = sequence[currentIndex] - 1;
+            const scenarioName = scenarios[scenarioIndex];
+            
+            document.getElementById('scenarioTitle').textContent = scenarioName;
+            
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            // 生成10个意象评分题
+            imageWords.forEach((word, i) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                const savedRating = allRatings[currentIndex][`q${i}`];
+                
+                questionDiv.innerHTML = `
+                    <div class="question-text">该意象与${word}的符合程度</div>
+                    <div class="rating-options">
+                        ${[1, 2, 3, 4, 5].map(score => `
+                            <div class="rating-option">
+                                <input type="radio" 
+                                       id="q${i}_${score}" 
+                                       name="q${i}" 
+                                       value="${score}"
+                                       ${savedRating == score ? 'checked' : ''}
+                                       onchange="saveRating(${i}, ${score})">
+                                <label for="q${i}_${score}">
+                                    <div style="font-size: 20px; margin-bottom: 5px;">${score}</div>
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="rating-labels">
+                        <span>完全不符合</span>
+                        <span>非常符合</span>
+                    </div>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+            
+            updateProgress();
+            updateButtons();
+        }
+        
+        // 保存评分
+        function saveRating(questionIndex, score) {
+            allRatings[currentIndex][`q${questionIndex}`] = score;
+            localStorage.setItem('allRatings', JSON.stringify(allRatings));
+        }
+        
+        // 下一个场景
+        function nextScenario() {
+            // 检查是否所有题目都已回答
+            const currentRatings = allRatings[currentIndex];
+            if (Object.keys(currentRatings).length < imageWords.length) {
+                alert('请完成所有题目后再继续！');
+                return;
+            }
+            
+            if (currentIndex < 9) {
+                currentIndex++;
+                renderRatingForm();
+            } else {
+                // 完成所有评分，进入个人信息页面
+                showSection('infoSection');
             }
         }
         
-        // 保存进度到localStorage
-        function saveProgress() {
-            const data = {
-                currentTaskIndex: currentTaskIndex,
-                completedTasks: completedTasks
-            };
-            localStorage.setItem('questionnaire_progress', JSON.stringify(data));
+        // 上一个场景
+        function previousScenario() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderRatingForm();
+            }
         }
         
         // 更新进度条
         function updateProgress() {
-            const progress = (completedTasks.length / tasks.length) * 100;
+            const progress = ((currentIndex + 1) / 10) * 100;
             const progressBar = document.getElementById('progressBar');
             progressBar.style.width = progress + '%';
-            progressBar.textContent = completedTasks.length + '/' + tasks.length;
+            progressBar.textContent = `${currentIndex + 1}/10`;
         }
         
-        // 渲染任务列表
-        function renderTaskList() {
-            const listContent = document.getElementById('taskListContent');
-            listContent.innerHTML = '';
+        // 更新按钮状态
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
             
-            tasks.forEach((task, index) => {
-                const div = document.createElement('div');
-                div.className = 'task-item';
-                
-                if (completedTasks.includes(task.id)) {
-                    div.classList.add('completed');
-                } else if (index === currentTaskIndex) {
-                    div.classList.add('current');
-                }
-                
-                div.innerHTML = `
-                    <div class="task-number">${task.id}</div>
-                    <div class="task-name-small">${task.name}</div>
-                `;
-                
-                listContent.appendChild(div);
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.textContent = currentIndex === 9 ? '完成评分' : '下一个';
+        }
+        
+        // 返回评分页面
+        function backToRating() {
+            showSection('ratingSection');
+        }
+        
+        // 提交所有数据
+        function submitAll() {
+            const form = document.getElementById('personalInfoForm');
+            
+            if (!form.checkValidity()) {
+                alert('请填写所有必填项！');
+                return;
+            }
+            
+            // 收集个人信息
+            const personalInfo = {
+                name: document.getElementById('userName').value,
+                age: document.getElementById('userAge').value,
+                gender: document.getElementById('userGender').value,
+                phoneBrand: document.getElementById('phoneBrand').value,
+                phoneUsage: document.getElementById('phoneUsage').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // 整合所有数据
+            const finalData = {
+                sequence: sequence,
+                ratings: allRatings,
+                personalInfo: personalInfo
+            };
+            
+            // 保存到 localStorage
+            localStorage.setItem('experimentData', JSON.stringify(finalData));
+            
+            // 这里可以添加发送数据到服务器的代码
+            console.log('实验数据：', finalData);
+            
+            // 显示完成页面
+            showSection('completedSection');
+            
+            // 下载数据为JSON文件（可选）
+            downloadData(finalData);
+        }
+        
+        // 下载数据
+        function downloadData(data) {
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `experiment_data_${Date.now()}.json`;
+            link.click();
+        }
+        
+        // 显示指定section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
             });
+            document.getElementById(sectionId).classList.add('active');
         }
         
-        // 渲染当前任务
-        function renderCurrentTask() {
-            const taskContent = document.getElementById('taskContent');
-            
-            if (currentTaskIndex >= tasks.length) {
-                // 所有任务完成
-                taskContent.innerHTML = `
-                    <div class="completed">
-                        <div class="checkmark">✓</div>
-                        <h2>恭喜！所有任务已完成</h2>
-                        <p>感谢您的参与！<br>您已完成全部10个场景的评分任务。</p>
-                        <button class="btn-primary" onclick="resetProgress()" style="margin-top: 20px;">重新开始</button>
-                    </div>
-                `;
-                return;
-            }
-            
-            const task = tasks[currentTaskIndex];
-            taskContent.innerHTML = `
-                <div class="current-task">
-                    <h2>当前任务 ${task.id}/10</h2>
-                    <div class="task-name">${task.name}</div>
-                    <div class="instruction">
-                        请点击下方按钮前往问卷填写本场景的评分。<br>
-                        填写完成后，请返回此页面继续下一个任务。
-                    </div>
-                </div>
-                <div class="button-group">
-                    <button class="btn-secondary" onclick="skipTask()">跳过</button>
-                    <button class="btn-primary" onclick="openQuestionnaire()">开始评分</button>
-                </div>
-            `;
-        }
-        
-        // 打开问卷
-        function openQuestionnaire() {
-            const task = tasks[currentTaskIndex];
-            
-            if (!task.url || task.url === "") {
-                alert('问卷链接尚未配置！\n\n请在代码中填写对应的问卷URL。');
-                return;
-            }
-            
-            pendingUrl = task.url;
-            document.getElementById('modalMessage').textContent = 
-                `确定要前往评分「${task.name}」吗？填写完成后请返回此页面继续下一个任务。`;
-            document.getElementById('confirmModal').classList.add('active');
-        }
-        
-        // 关闭模态框
-        function closeModal() {
-            document.getElementById('confirmModal').classList.remove('active');
-        }
-        
-        // 确认前往
-        function confirmGo() {
-            closeModal();
-            window.open(pendingUrl, '_blank');
-            
-            // 延迟3秒后询问是否完成
-            setTimeout(() => {
-                if (confirm('您已完成这个场景的评分了吗？\n\n点击"确定"进入下一个任务\n点击"取消"稍后再确认')) {
-                    completeTask();
-                }
-            }, 3000);
-        }
-        
-        // 完成当前任务
-        function completeTask() {
-            const task = tasks[currentTaskIndex];
-            if (!completedTasks.includes(task.id)) {
-                completedTasks.push(task.id);
-            }
-            currentTaskIndex++;
-            saveProgress();
-            updateProgress();
-            renderTaskList();
-            renderCurrentTask();
-        }
-        
-        // 跳过任务
-        function skipTask() {
-            if (confirm('确定要跳过当前任务吗？\n您可以稍后再回来完成。')) {
-                currentTaskIndex++;
-                saveProgress();
-                updateProgress();
-                renderTaskList();
-                renderCurrentTask();
-            }
-        }
-        
-        // 重置进度
-        function resetProgress() {
-            if (confirm('确定要重置所有进度吗？\n这将清除您的所有完成记录。')) {
-                localStorage.removeItem('questionnaire_progress');
-                currentTaskIndex = 0;
-                completedTasks = [];
-                saveProgress();
-                updateProgress();
-                renderTaskList();
-                renderCurrentTask();
-            }
-        }
-        
-        // 页面加载时初始化
+        // 页面加载时恢复进度（如果有）
         window.onload = function() {
-            loadProgress();
-            updateProgress();
-            renderTaskList();
-            renderCurrentTask();
+            const savedSequence = localStorage.getItem('userSequence');
+            const savedRatings = localStorage.getItem('allRatings');
+            
+            if (savedSequence && savedRatings) {
+                if (confirm('检测到未完成的实验，是否继续？')) {
+                    sequence = JSON.parse(savedSequence);
+                    allRatings = JSON.parse(savedRatings);
+                    
+                    // 找到最后完成的位置
+                    currentIndex = allRatings.findIndex(r => Object.keys(r).length < imageWords.length);
+                    if (currentIndex === -1) currentIndex = 9;
+                    
+                    showSection('ratingSection');
+                    renderRatingForm();
+                } else {
+                    localStorage.removeItem('userSequence');
+                    localStorage.removeItem('allRatings');
+                }
+            }
         };
     </script>
 </body>
